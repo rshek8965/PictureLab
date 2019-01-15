@@ -150,7 +150,7 @@ public class Picture extends SimplePicture
     {
       for (Pixel pixelObj : rowArray)
       {
-        pixelObj.setRed(155-pixelObj.getRed());
+        pixelObj.setRed(120-pixelObj.getRed());
         pixelObj.setBlue(255-pixelObj.getBlue());
         pixelObj.setGreen(255-pixelObj.getGreen());
       }
