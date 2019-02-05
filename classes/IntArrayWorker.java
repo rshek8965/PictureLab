@@ -114,16 +114,14 @@ public class IntArrayWorker {
     return largest;
   }
 
-//  public void getColTotal()
-//  {
-//    for (int row = 0; row < matrix.length; row++)
-//    {
-//      for (int col = 0; col < matrix[0].length;
-//           col++)
-//      {
-//
-//      }
-//    }
-//  }
+  public int getColTotal(int x)
+  {
+    int total = 0;
+    for (int row = 0; row < matrix.length; row++)
+    {
+      total+= matrix[row][x];
+    }
+    return total;
+  }
  
 }

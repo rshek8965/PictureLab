@@ -275,7 +275,75 @@ public class Picture extends SimplePicture
       }
     }
   }
-  
+
+  public void mirrorVerticalRightToLeft()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int width = pixels[0].length;
+    for (int row = 0; row < pixels.length; row++)
+    {
+      for (int col = 0; col < width; col++)
+      {
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row][width -1 -col];
+        leftPixel.setColor((rightPixel.getColor()));
+      }
+    }
+  }
+
+  public void mirrorHorizontal()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    int height = pixels.length;
+    for (int row = 0; row < height/2; row++)
+    {
+      for (int col = 0; col < pixels[0].length; col++)
+      {
+        topPixel = pixels[row][col];
+        bottomPixel = pixels[height -1 -row][col];
+        bottomPixel.setColor((topPixel.getColor()));
+      }
+    }
+  }
+
+  public void mirrorHorizontalBotToTop()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    int height = pixels.length;
+    for (int col = 0; col < pixels[0].length; col++) {
+      for (int row = height - 1; row > height/2; row--) {
+        topPixel = pixels[row][col];
+        bottomPixel = pixels[height - 1 - row][col];
+        bottomPixel.setColor(topPixel.getColor());
+      }
+    }
+  }
+
+  public void mirrorDiagonal()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel pixel1 = null;
+    Pixel pixel2 = null;
+    int width = pixels[0].length;
+    for (int row = 0; row < pixels.length; row++)
+    {
+      for (int col = 0; col < pixels[0].length; col++)
+      {
+        if (col < pixels.length)
+        {
+          pixel1 = pixels[row][col];
+          pixel2 = pixels[col][row];
+          pixel1.setColor(pixel2.getColor());
+        }
+      }
+    }
+  }
   
   /* Main method for testing - each class in Java can have a main 
    * method 
